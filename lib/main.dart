@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login/view/screens/login.dart';
+
+import 'package:login/view/splashscreen/splash.dart';
 
 void main() {
   runApp(const Myapp());
@@ -15,8 +16,9 @@ class Myapp extends StatefulWidget {
 class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Login(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Splash(),
     );
   }
 }

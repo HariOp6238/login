@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:login/constant/mybutton.dart';
 import 'package:login/constant/squarelogo.dart';
 import 'package:login/constant/textfield.dart';
-import 'package:login/view/screens/registeration.dart';
+import 'package:login/controll/authentication/auth.dart';
+
+import 'package:login/view/loginscreen/registeration.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
 
   //text editing controller
-  final emailcontroller = TextEditingController();
+  final usernamecontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    Auth obj = Auth();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -47,7 +51,7 @@ class Login extends StatelessWidget {
                 // username field
 
                 Textfield(
-                  controller: emailcontroller,
+                  controller: usernamecontroller,
                   hinttext: "Enter your username",
                   obscuretext: false,
                 ),
@@ -84,9 +88,8 @@ class Login extends StatelessWidget {
 
                   //signin button
                 ),
-                // mybutton(
-                //   onTap: ,
-                // ),
+                Mybutton(
+                    onTap: () => obj.checklogin(context), label: 'Sign in'),
                 const SizedBox(
                   height: 20,
                 ),
@@ -136,7 +139,7 @@ class Login extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Register(),
+                              builder: (context) => Register(),
                             ));
                       },
                       child: const Text(
